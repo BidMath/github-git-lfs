@@ -14,7 +14,7 @@
 - name: Ensure repository configuration (Debian)
   template: >
     src=debian.github_git-lfs.list.j2
-    dest=/etc/sources.list.d/github_git-lfs.repo
+    dest=/etc/apt/sources.list.d/github_git-lfs.list
     owner=root group=root mode=0644
 
 - name: Ensure github git-lfs is installed (Debian)
