@@ -1,0 +1,21 @@
+---
+- name: Ensure requirements are installed (RedHat)
+  yum:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - pygpgme
+    - yum-utils
+
+- name: Ensure repository configuration (RedHat)
+  template: >
+    src=yum.github_git-lfs.repo.j2
+    dest=/etc/yum.repos.d/github_git-lfs.repo
+    owner=root group=root mode=0644
+
+- name: Ensure github git-lfs is installed (RedHat)
+  yum:
+    name=git-lfs
+    state=latest
+    update_cache=yes
+    enablerepo=github_git-lfs
