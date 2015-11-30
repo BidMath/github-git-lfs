@@ -1,0 +1,24 @@
+---
+- name: Add an Apt signing key (Debian)
+  apt_key: url=https://packagecloud.io/gpg.key state=present
+
+- name: Ensure requirements are installed (Debian)
+  apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  with_items:
+    - debian-archive-keyring
+    - apt-transport-https
+
+- name: Ensure repository configuration (Debian)
+  template: >
+    src=debian.github_git-lfs.list.j2
+    dest=/etc/debian.repos.d/github_git-lfs.repo
+    owner=root group=root mode=0644
+
+- name: Ensure github git-lfs is installed (Debian)
+  apt:
+    name=git-lfs
+    state=latest
+    update_cache=yes
