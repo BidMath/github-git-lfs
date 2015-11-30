@@ -12,10 +12,11 @@ install:
   # Install Ansible.
   - pip install ansible
 
-  - ansible-galaxy install geerlingguy.git
-
   # Add ansible.cfg to pick up roles path.
   - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
+
+  - ansible-galaxy install geerlingguy.git --force
+
 script:
   # Check the role/playbook's syntax.
   - "ansible-playbook -i tests/inventory tests/$SITE --syntax-check"
