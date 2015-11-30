@@ -1,0 +1,23 @@
+---
+dependencies:
+  - { role: geerlingguy.git }
+
+
+galaxy_info:
+  author: pedrocarmona
+  description: Git Large File Storage
+  license: "license (BSD, MIT)"
+  min_ansible_version: 1.4
+  platforms:
+  - name: EL
+    versions:
+    - all
+  - name: Debian
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+  categories:
+    - development
+    - system
