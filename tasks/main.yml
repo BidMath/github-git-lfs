@@ -7,4 +7,4 @@
 
 - name:  Git lfs install
   sudo: false
-  command: git lfs install
+  command: git lfs install {{ git_lfs_install_vars }}

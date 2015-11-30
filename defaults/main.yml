@@ -1,2 +1,2 @@
 ---
-# This space intentionally left blank.
+git_lfs_install_vars: --skip-smudge
