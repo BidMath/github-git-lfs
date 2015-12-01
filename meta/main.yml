@@ -5,6 +5,7 @@ dependencies:
 
 galaxy_info:
   author: pedrocarmona
+  company: BidMath
   description: Git Large File Storage
   license: "license (BSD, MIT)"
   min_ansible_version: 1.4

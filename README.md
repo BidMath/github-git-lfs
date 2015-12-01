@@ -4,6 +4,8 @@ Installs Git LFS, "an open source Git extension for versioning large files", on 
 
 ![Build Status](https://travis-ci.org/pedrocarmona/github-git-lfs.svg?branch=master)
 
+Sponsored by [BidMath](http://bidmath.com/)
+
 ## Requirements
 
 - { role: pedrocarmona.github-git-lfs }
