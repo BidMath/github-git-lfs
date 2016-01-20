@@ -31,6 +31,12 @@ script:
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
 
+  - >
+    git lfs version | awk -F' ' '{print $1}' | awk -F'/' '{print $2}'
+    | grep -q '1.1.0'
+    && (echo 'Idempotence test: pass' && exit 0)
+    || (echo 'Idempotence test: fail' && exit 1)
+
   # Make sure git is installed and at the correct version.
   - which git-lfs
   - git lfs env
