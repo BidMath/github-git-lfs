@@ -22,14 +22,20 @@ script:
   - "ansible-playbook -i tests/inventory tests/$SITE --syntax-check"
 
   # Run the role/playbook with ansible-playbook.
-  - "ansible-playbook -i tests/inventory tests/$SITE --connection=local --sudo"
+  - "ansible-playbook -i tests/inventory tests/$SITE --connection=local"
 
   # Run the role/playbook again, checking to make sure it's idempotent.
   - >
-    ansible-playbook -i tests/inventory tests/$SITE --connection=local --sudo
-    | grep -q 'changed=1.*failed=0'
+    ansible-playbook -i tests/inventory tests/$SITE --connection=local
+    | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
+
+  - >
+    git lfs version | awk -F' ' '{print $1}' | awk -F'/' '{print $2}'
+    | grep -q '1.1.0'
+    && (echo 'version test: pass' && exit 0)
+    || (echo 'version test: fail' && exit 1)
 
   # Make sure git is installed and at the correct version.
   - which git-lfs

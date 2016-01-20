@@ -1,5 +1,8 @@
 ---
 - hosts: localhost
-  remote_user: root
+  sudo: true
+  vars:
+    user: deploy
+    group: deploy
   roles:
     - github-git-lfs
