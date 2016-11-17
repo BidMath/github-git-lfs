@@ -1,6 +1,8 @@
 ---
 - include: redhat.yml
   when: ansible_os_family == 'RedHat'
+  tags: ['git-lfs']
 
 - include: debian.yml
   when: ansible_os_family == 'Debian'
+  tags: ['git-lfs']

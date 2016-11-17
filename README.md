@@ -18,7 +18,6 @@ Sponsored by [BidMath](http://bidmath.com/)
     - { role: pedrocarmona.github-git-lfs }
 ```
 
-
 ## License
 
 MIT / BSD
