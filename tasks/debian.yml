@@ -6,22 +6,19 @@
   apt:
     name: "{{ item }}"
     state: latest
+    update_cache: yes
   with_items:
     - debian-archive-keyring
     - apt-transport-https
 
 - name: Ensure repository configuration (Debian)
-  apt_repository: >
-    repo={{ item }}
-    state=present
-    filename=github_git-lfs
-    update_cache=yes
-    mode=0644
-  with_items:
-    - "deb https://packagecloud.io/github/git-lfs/{{ansible_distribution|lower}}/ {{ansible_distribution_release}} main"
-    - "deb-src https://packagecloud.io/github/git-lfs/{{ansible_distribution|lower}}/ {{ansible_distribution_release}} main"
+  template: >
+    src=debian.github_git-lfs.list.j2
+    dest=/etc/apt/sources.list.d/github_git-lfs.list
+    owner=root group=root mode=0644
 
 - name: Ensure github git-lfs is installed (Debian)
   apt:
     name=git-lfs={{ git_lfs_version }}
     state=present
+    update_cache=yes
