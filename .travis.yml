@@ -33,7 +33,7 @@ script:
 
   - >
     git lfs version | awk -F' ' '{print $1}' | awk -F'/' '{print $2}'
-    | grep -q '1.1.0'
+    | grep -q '1.4.4'
     && (echo 'version test: pass' && exit 0)
     || (echo 'version test: fail' && exit 1)
 
