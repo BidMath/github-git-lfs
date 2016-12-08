@@ -10,6 +10,8 @@ Sponsored by [BidMath](http://bidmath.com/)
 
 - { role: pedrocarmona.github-git-lfs }
 
+It depends on ansible 2.1, for earlier versions, please checkout this [tag](https://github.com/BidMath/github-git-lfs/releases/tag/v1.2.0)
+
 ## Example Playbook
 
 ```yaml
