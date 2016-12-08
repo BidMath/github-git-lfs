@@ -1,6 +1,6 @@
 ---
 - hosts: localhost
-  become: true
+  sudo: true
   vars:
     user: deploy
     group: deploy
