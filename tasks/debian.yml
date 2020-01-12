@@ -1,6 +1,6 @@
 ---
 - name: Add an Apt signing key (Debian)
-  apt_key: url=https://packagecloud.io/gpg.key state=present
+  apt_key: url={{ git_lfs_apt_key_url }} state=present
 
 - name: Ensure requirements are installed (Debian)
   apt:
@@ -20,6 +20,9 @@
   with_items:
     - "deb https://packagecloud.io/github/git-lfs/{{ansible_distribution|lower}}/ {{ansible_distribution_release}} main"
     - "deb-src https://packagecloud.io/github/git-lfs/{{ansible_distribution|lower}}/ {{ansible_distribution_release}} main"
+
+- name: Update repositories (Debian)
+  apt: update_cache=yes
 
 - name: Ensure github git-lfs is installed (Debian)
   apt:
